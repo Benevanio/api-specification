@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd">
+	<vm:config name="VM_Config" doc:name="VM Config" doc:id="ee14c01f-3e81-477d-bc46-1c69b5eb1864" >
+		<vm:connection >
+			<reconnection />
+		</vm:connection>
+		<vm:queues >
+			<vm:queue queueName="artistID" queueType="PERSISTENT" />
+		</vm:queues>
+	</vm:config>
+	<vm:config name="VM_ArtistID" doc:name="VM Config" doc:id="a16bf909-e017-4e3b-b05f-eb45f6ea37a6" >
+		<vm:queues >
+			<vm:queue queueName="ArtistIDPOST" queueType="PERSISTENT" maxOutstandingMessages="1" />
+		</vm:queues>
+	</vm:config>
+	<vm:config name="vm-delete-artist" doc:name="VM Config" doc:id="f28a0e63-c0a7-4d18-bbb8-e6105d5939e1" >
+		<vm:queues >
+			<vm:queue queueName="deleteArtist" queueType="PERSISTENT" />
+		</vm:queues>
+	</vm:config>
+</mule>

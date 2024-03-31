@@ -1,0 +1,56 @@
+#%RAML 1.0
+title: Spotify API
+
+types:
+  Artist: !include /exchange_modules/27c28d11-eeb1-4879-a567-7c8de460251b/artist/1.0.0/artist.raml
+
+/artists:
+  displayName: Artists
+  get:
+    description: Retrieve several artists
+    responses:
+      200:
+        body:
+          application/json:
+            type: Artist[]
+            examples:
+              output: !include /examples/responses/ArtistsResponse.raml
+
+  post:
+    description: Create a new artist
+    body:
+      application/json:
+        type: Artist
+    responses:
+      201:
+        description: Artist created successfully
+
+/{id}:
+  displayName: Artist
+  get:
+    description: Retrieve an artist by ID
+    responses:
+      200:
+        body:
+          application/json:
+            type: Artist[]
+            examples: !include /examples/responses/SingleArtistResponse.raml
+
+      404:
+        description: Artist not found
+
+  put:
+    description: Update an existing artist by ID
+    responses:
+      200:
+        description: Artist updated successfully
+      404:
+        description: Artist not found
+
+  delete:
+    description: Delete an artist by ID
+    responses:
+      204:
+        description: Artist deleted successfully
+      404:
+        description: Artist not found

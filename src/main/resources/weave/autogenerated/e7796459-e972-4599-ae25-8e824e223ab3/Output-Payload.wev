@@ -1,0 +1,4 @@
+%dw 2.0
+
+type auto_e7796459_e972_4599_ae25_8e824e223ab3_Output_Payload = Array<{  genre: String,   artistId?: Number,   artistName: String,   _?: Any}>
+
